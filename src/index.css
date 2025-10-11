@@ -1,0 +1,150 @@
+@font-face {
+  font-family: 'AvenirBlack';
+  src: url('./fonts/Avenir Black.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AvenirRegular';
+  src: url('./fonts/Avenir Regular.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Megazoid';
+  src: url('./fonts/megazoid.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+
+  --font-avenirblack: 'AvenirBlack', 'sans-serif';
+  --font-avenirregular: 'AvenirRegular', 'sans-serif';
+  --font-megazoid: 'megazoid', 'sans-serif';  
+  --color-border: hsl(var(--border));
+
+  --color-primary: hsl(var(--primary));
+  --color-secondary: hsl(var(--secondary));
+
+  --color-card: hsl(var(--card));
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --background: url("./assets/baxkground-1920.jpg");
+
+    --primary: 136, 38%, 20%;
+    --secondary: 71, 33%, 90%;
+
+    --border: 136, 38%, 20%;
+    --card:103, 27%, 32%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    @apply font-avenirregular;
+  }
+
+  body {
+    background-image: var(--background);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    @apply text-primary transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+
+  }
+
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@utility text-glow {
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167,139,250,0.5);
+}
+
+@utility card-hover {
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+}
+
+@utility my-button {
+  @apply px-6 py-2 rounded-full bg-primary text-secondary font-medium 
+         transition-all duration-300 hover:scale-105 active:scale-95; 
+
+  &:hover {
+    box-shadow: 0 0 10px hsla(var(--card), 0.5); 
+  }
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+
