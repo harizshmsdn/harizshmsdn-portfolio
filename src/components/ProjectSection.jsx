@@ -13,10 +13,10 @@ const projects = [
     },
     {
         id: 2,
-        title: "TEMP IMAGE",
-        description: "temp description",
-        image: "/projects/temp2.jpg",
-        demoUrl: "#",
+        title: "PEKOM Merch Reel",
+        description: "Short introduction video for PEKOM",
+        image: "/projects/PEKOMthumbnail.jpg",
+        demoUrl: "https://www.instagram.com/reel/DTm4zY9DfrA/?utm_source=ig_web_button_share_sheet&igsh=MzRlODBiNWFlZA==",
     },
     {
         id: 3,
